@@ -1,0 +1,7 @@
+CREATE TABLE PHONG_BAN (
+                             PHONG_BAN_ID INT PRIMARY KEY,
+                             PHONG_BAN_NAME VARCHAR(100) NOT NULL
+);
+/
+COMMENT ON COLUMN PHONG_BAN.PHONG_BAN_ID IS 'ID duy nhất của phòng ban';
+COMMENT ON COLUMN PHONG_BAN.PHONG_BAN_NAME IS 'Tên phòng ban';
