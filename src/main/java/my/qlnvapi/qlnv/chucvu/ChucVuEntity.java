@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import my.qlnvapi.qlnv.nhanvien.NhanVienEntitys;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -17,12 +19,26 @@ public class ChucVuEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long phongBanId;
+    @Column(name = "CHUC_VU_ID")
+    private Long chucVuId;
 
-    @Column(name = "CHUC_VU_TEN", nullable = false, length = 100)
-    private String phongBanName;
+    private String chucVuTen;
 
-    @OneToMany(mappedBy = "chucVu")
-    private List<NhanVienEntitys> nhanViens;
+    @OneToMany(mappedBy = "chucVu", cascade = CascadeType.ALL)
+    private List<NhanVienEntitys> nhanViens = new ArrayList<>();
 
+    @Column(name = "NGAY_TAO")
+    private Date ngayTao;
+
+    @Column(name = "NGAY_SUA")
+    private Date ngaySua;
+
+    @Column(name = "NGUOI_TAO")
+    private String nguoiTao;
+
+    @Column(name = "NGUOI_SUA")
+    private String nguoiSua;
+
+    @Column(name = "IS_DELETED")
+    private byte isDeleted;
 }

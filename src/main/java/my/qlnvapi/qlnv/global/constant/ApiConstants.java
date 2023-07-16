@@ -10,8 +10,8 @@ public class ApiConstants {
         public static final String CREATE = "/create";
         public static final String UPDATE = "/update";
         public static final String SEARCH = "/search";
-        public static final String DELETE = "/delete";
-        public static final String SEARCH_BY_ID = "/get";
+        public static final String DELETE = "/delete/{id}";
+        public static final String SEARCH_BY_ID = "/get/{id}";
 
         /*Description*/
         public static final String OPERATION_SEARCH_PHONG_BAN = "Tìm kiếm phòng ban";

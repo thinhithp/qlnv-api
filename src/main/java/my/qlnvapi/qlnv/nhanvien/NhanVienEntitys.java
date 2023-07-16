@@ -1,15 +1,13 @@
 package my.qlnvapi.qlnv.nhanvien;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.databind.annotation.EnumNaming;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import my.qlnvapi.qlnv.chucvu.ChucVuEntity;
 import my.qlnvapi.qlnv.global.constant.Common;
-import my.qlnvapi.qlnv.phongban.PhongBanEntity;
-import org.hibernate.annotations.Comment;
+import my.qlnvapi.qlnv.phongban.entity.PhongBanEntity;
 
 import javax.validation.constraints.Pattern;
 import java.util.Date;
@@ -46,11 +44,26 @@ public class NhanVienEntitys {
     @Column(name = "SO_DIEN_THOAI")
     private String soDienThoai;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "chuc_vu_id", nullable = false)
     private ChucVuEntity chucVu;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "phong_ban_id", nullable = false)
     private PhongBanEntity phongBan;
+
+    @Column(name = "NGAY_TAO")
+    private Date ngayTao;
+
+    @Column(name = "NGAY_SUA")
+    private Date ngaySua;
+
+    @Column(name = "NGUOI_TAO")
+    private String nguoiTao;
+
+    @Column(name = "NGUOI_SUA")
+    private String nguoiSua;
+
+    @Column(name = "IS_DELETED")
+    private byte isDeleted;
 }
